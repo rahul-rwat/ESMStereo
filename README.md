@@ -26,7 +26,6 @@ for Real-Time and Accurate Stereo Matching</h1>
 
 
 # SOTA results.
-The results on SceneFlow
 <p align="center">
 <table>
 <tr><th>The results on SceneFlow </th><th>Performance on AGX Orin 64GB</th></tr>
