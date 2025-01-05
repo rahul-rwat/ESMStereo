@@ -89,7 +89,7 @@ The structure of /datasets directory
 /datasets/
 |-- ETH3D
 |   |-- two_view_training
-|   `-- two_view_training_gt
+|   |-- two_view_training_gt
 |-- Middlebury
 |   |-- Eval3_GT
 |   |-- MiddEval3-GT0-H
@@ -97,20 +97,20 @@ The structure of /datasets directory
 |   |-- MiddEval3-data-H
 |   |-- MiddEval3-data-Q
 |   |-- testH
-|   `-- trainingH
+|   |-- trainingH
 |-- SceneFlow
-|   `-- flyingthings3d
+|   |-- flyingthings3d
 |-- kitti_2012
 |   |-- testing
-|   `-- training
+|   |-- training
 |-- kitti_2015
 |   |-- testing
-|   `-- training
+|   |-- training
 |-- kittiraw
 |   |-- 2011_09_26
-`-- vkitti
+|-- vkitti
     |-- vkitti_depth
-    `-- vkitti_rgb
+    |-- vkitti_rgb
 ```
 
 ## Train
