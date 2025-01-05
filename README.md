@@ -115,7 +115,7 @@ The structure of /datasets directory
 
 ## Train
 
-Use the following commands to train GHUStereo on SceneFlow.
+Use the following commands to train ESMStereo on SceneFlow.
 First training,
 ```
 python3 train_sceneflow.py --logdir checkpoints/Large  --cv gwc --cv_scale 4
