@@ -106,7 +106,7 @@ The structure of /datasets directory
 |-- kitti_2015
 |   |-- testing
 |   `-- training
-|-- kittiraw2
+|-- kittiraw
 |   |-- 2011_09_26
 `-- vkitti
     |-- vkitti_depth
