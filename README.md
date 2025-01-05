@@ -28,6 +28,10 @@ for Real-Time and Accurate Stereo Matching</h1>
 # SOTA results.
 The results on SceneFlow
 
+<table>
+<tr><th>The results on SceneFlow </th><th>Performance on AGX Orin 64GB</th></tr>
+<tr><td>
+
 | Method | EPE <br> px|Runtime <br> (ms)|
 |:-:|:-:|:-:|
 | SADSNet-M-N7  | 1.16 | 8.5 |
@@ -44,6 +48,16 @@ The results on SceneFlow
 | **ESMStereo-S-gwc**| 1.10  | 8.6 |
 | **ESMStereo-M-gwc**| 0.77 | 14 |
 | **ESMStereo-L-gwc**| **0.53** | 26 |
+
+</td><td>
+
+| Architecture |Performance <br> (FPS)|
+|:-:|:-:|:-:|
+| **ESMStereo-S-gwc**| 91 |
+| **ESMStereo-M-gwc**| 29 |
+| **ESMStereo-L-gwc**| 8.4 |
+
+</td></tr> </table>
 
 # How to use
 
