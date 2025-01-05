@@ -40,7 +40,6 @@ The results on SceneFlow
 | CGIStereo | 0.64 | 29 |
 | FADNet++ | 0.76 | 33 |
 | RT-IGEV++ | 0.55  | 42 |
-
 | ------ | ------ | ------ |
 | **ESMStereo-S-gwc**| 1.10  | 8.6 |
 | **ESMStereo-M-gwc**| 0.77 | 14 |
