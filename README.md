@@ -52,7 +52,7 @@ The results on SceneFlow
 </td><td>
 
 | Architecture |Performance <br> (FPS)|
-|:-:|:-:|:-:|
+|:-:|:-:|
 | **ESMStereo-S-gwc**| 91 |
 | **ESMStereo-M-gwc**| 29 |
 | **ESMStereo-L-gwc**| 8.4 |
