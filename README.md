@@ -14,12 +14,12 @@ for Real-Time and Accurate Stereo Matching</h1>
 </p>
 
 
-# Performance of ESMStereo-L on KITTI raw dataset (37 FPS for the resolution of 380 x 1248 on RTX 4070 S)
+## Performance of ESMStereo-L on KITTI raw dataset (37 FPS for the resolution of 380 x 1248 on RTX 4070 S)
 <p align="center">
   <img width="600" height="300" src="./imgs/ESMStereo_L.gif" data-zoomable>
 </p>
 
-# Performance of ESMStereo-S on KITTI raw dataset (105 FPS for the resolution of 380 x 1248 on RTX 4070 S)
+## Performance of ESMStereo-S on KITTI raw dataset (105 FPS for the resolution of 380 x 1248 on RTX 4070 S)
 <p align="center">
   <img width="600" height="300" src="./imgs/ESMStereo_S.gif" data-zoomable>
 </p>
@@ -55,7 +55,6 @@ The results on SceneFlow
 ## Install
 
 ```
-conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch -c nvidia
 pip install opencv-python
 pip install scikit-image
 pip install tensorboard
@@ -102,7 +101,7 @@ The structure of /datasets directory
 
 ## Train
 
-Use the following command to train GHUStereo on SceneFlow.
+Use the following commands to train GHUStereo on SceneFlow.
 First training,
 ```
 python3 train_sceneflow.py --logdir checkpoints/Large  --cv gwc --cv_scale 4
@@ -110,7 +109,7 @@ python3 train_sceneflow.py --logdir checkpoints/Medium --cv gwc --cv_scale 8
 python3 train_sceneflow.py --logdir checkpoints/Small  --cv gwc --cv_scale 16 --backbone mobilenetv2_100
 ```
 
-Use the following command to finetune ESMStereo on KITTI using the pretrained model on SceneFlow,
+Use the following commands to finetune ESMStereo on KITTI using the pretrained model on SceneFlow,
 ```
 python3 train_kitti.py --logdir Large  --loadckpt checkpoint/esmstereo_L_gwc.ckpt --cv gwc --cv_scale 4
 python3 train_kitti.py --logdir Medium --loadckpt checkpoint/esmstereo_M_gwc.ckpt --cv gwc --cv_scale 8
