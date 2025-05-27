@@ -133,7 +133,7 @@ python3 train_kitti.py --logdir Small --loadckpt checkpoint/esmstereo_S_gwc.ckpt
 
 ### Pretrained Model
 Download the trained weights folder and extract it in the root directory.
-* [ESMStereo](place the link)
+* [ESMStereo](https://drive.google.com/file/d/1fCEKiQ1wA-TehKVisDF77hZhqDqGWGyH/view?usp=sharing)
 
 Generate disparity images of KITTI test set,
 ```
