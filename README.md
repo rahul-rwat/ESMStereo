@@ -14,10 +14,18 @@ for Real-Time and Accurate Stereo Matching</h1>
 </p>
 
 
-## Performance of ESMStereo-L on KITTI raw dataset (37 FPS for the resolution of 380 x 1248 on RTX 4070 S)
+💡 Lightweight upsampling architecture designed for embedded deployment
+💡 Delivers subpixel-level precision on KITTI dataset 
+💡 Runs at up to 90 FPS on high-end GPUs and Jetson AGX series
+💡 Compatible with cost-volume-based stereo pipelines
+
+
+## Performance of ESMStereo-S and ESMStereo-L on KITTI raw dataset (130 and 67 FPS for the resolution of 380 x 1248 on Jetson AGX Orin 40 GB)
 <p align="center">
-  <img width="600" height="300" src="./imgs/ESMStereo_L.gif" data-zoomable>
+  <img width="600" height="300" src="./imgs/output.gif" data-zoomable>
 </p>
+
+Note: The reported inference performance on Jetson AGX Orin reflects pure network inference only, excluding any preprocessing, postprocessing, and host-to-device (H2D) or device-to-host (D2H) data transfers.
 
 ## Performance of ESMStereo-S on KITTI raw dataset (105 FPS for the resolution of 380 x 1248 on RTX 4070 S)
 <p align="center">
@@ -132,7 +140,7 @@ python3 train_kitti.py --logdir Small --loadckpt checkpoint/esmstereo_S_gwc.ckpt
 ```
 
 ### Pretrained Model
-Download the trained weights folder and extract it in the root directory.
+Download the trained weights folder and extract it in the root directory, rename it to ```checkpoint```.
 * [ESMStereo](https://drive.google.com/file/d/1fCEKiQ1wA-TehKVisDF77hZhqDqGWGyH/view?usp=sharing)
 
 Generate disparity images of KITTI test set,
@@ -153,10 +161,34 @@ python3 train_sceneflow.py --logdir checkpoints/Large  --cv gwc --cv_scale 4 --p
 Use ``` test_kitti.py ```, ``` test_mid.py ``` and ``` test_eth3d.py ``` for generalization results on KITTI, Middleburry, and ETH3D
 
 
-# Citation
+### ROS2 inference on Jetson 
+
+Note 1: The current settings are optimized for KITTI resolution. To use your own dataset, update the ONNX configuration accordingly and set the correct dataset path in the launch file.
+Note 2: Set the correct path for TensorRT in CMakeLists.txt
 
 ```
+python onnx_transformed.py
+trtexec --onnx=StereoModel.onnx --useCudaGraph --saveEngine=StereoModel.plan --fp16 --verbose
+cp StereoModel.plan /tmp
+cd kitti_publisher
+colcon build
+source install/setup.bash
+ros2 launch kitti_publisher kitti_publisher_cuda_node.launch.py 
+```
+# Citation
 
+Please cite the following if you use this work in your research:
+
+```
+@misc{tahmasebi2025esmstereoenhancedshufflemixerdisparity,
+      title={ESMStereo: Enhanced ShuffleMixer Disparity Upsampling for Real-Time and Accurate Stereo Matching}, 
+      author={Mahmoud Tahmasebi and Saif Huq and Kevin Meehan and Marion McAfee},
+      year={2025},
+      eprint={2506.21091},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2506.21091}, 
+}
 ```
 # Acknowledgements
 

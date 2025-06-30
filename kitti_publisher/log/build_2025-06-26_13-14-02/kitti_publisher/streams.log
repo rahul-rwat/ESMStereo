@@ -1,0 +1,381 @@
+[0.007s] Invoking command in '/home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /opt/cmake-3.28.3-linux-x86_64/bin/cmake /home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher -DCMAKE_INSTALL_PREFIX=/home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher
+[0.135s] -- The C compiler identification is GNU 12.3.0
+[0.181s] -- The CXX compiler identification is GNU 11.4.0
+[0.203s] -- Detecting C compiler ABI info
+[0.292s] -- Detecting C compiler ABI info - done
+[0.304s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.306s] -- Detecting C compile features
+[0.306s] -- Detecting C compile features - done
+[0.320s] -- Detecting CXX compiler ABI info
+[0.409s] -- Detecting CXX compiler ABI info - done
+[0.421s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.422s] -- Detecting CXX compile features
+[0.422s] -- Detecting CXX compile features - done
+[0.423s] [33mCMake Warning (dev) at CMakeLists.txt:13 (find_package):
+[0.423s]   Policy CMP0146 is not set: The FindCUDA module is removed.  Run "cmake
+[0.423s]   --help-policy CMP0146" for policy details.  Use the cmake_policy command to
+[0.423s]   set the policy and suppress this warning.
+[0.423s] 
+[0.423s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.424s] [0m
+[0.441s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.532s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.534s] -- Found Threads: TRUE  
+[0.544s] -- Found CUDA: /usr/local/cuda (found version "11.7") 
+[0.547s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.101s] -- Found Python3: /home/stereo/.pyenv/shims/python3 (found version "3.10.12") found components: Interpreter 
+[1.240s] -- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)
+[1.279s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.283s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.290s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.300s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.313s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.349s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.351s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.437s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.483s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.515s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.567s] -- Found sensor_msgs: 4.8.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.600s] -- Found OpenCV: /usr (found version "4.5.4") 
+[1.601s] -- Found cv_bridge: 3.2.1 (/opt/ros/humble/share/cv_bridge/cmake)
+[1.604s] -- Found tf2_ros: 0.25.12 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.700s] -- Found rosbag2_cpp: 0.15.14 (/opt/ros/humble/share/rosbag2_cpp/cmake)
+[1.821s] -- Configuring done (1.8s)
+[1.832s] -- Generating done (0.0s)
+[1.835s] -- Build files have been written to: /home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher
+[1.843s] Invoked command in '/home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /opt/cmake-3.28.3-linux-x86_64/bin/cmake /home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher -DCMAKE_INSTALL_PREFIX=/home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher
+[1.845s] Invoking command in '/home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /opt/cmake-3.28.3-linux-x86_64/bin/cmake --build /home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher -- -j12 -l12
+[1.870s] [ 50%] [32mBuilding CXX object CMakeFiles/kitti_publisher_cuda_node.dir/src/kitti_publisher_cuda_node.cpp.o[0m
+[3.192s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimeCommon.h:34[m[K,
+[3.192s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferImpl.h:22[m[K,
+[3.192s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:27[m[K,
+[3.192s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.192s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.192s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:[m[K In member function ‘[01m[Kvirtual int32_t nvinfer1::IPluginV2Ext::getTensorRTVersion() const[m[K’:
+[3.192s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:694:75:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::PluginVersion::kV2_EXT[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.192s]   694 |         return static_cast<int32_t>((static_cast<uint32_t>(PluginVersion::[01;35m[KkV2_EXT[m[K) << 24U)
+[3.192s]       |                                                                           [01;35m[K^~~~~~~[m[K
+[3.192s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:99:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.192s]    99 |     [01;36m[KkV2_EXT[m[K TRT_DEPRECATED_ENUM = 1,
+[3.192s]       |     [01;36m[K^~~~~~~[m[K
+[3.192s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:694:75:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::PluginVersion::kV2_EXT[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.193s]   694 |         return static_cast<int32_t>((static_cast<uint32_t>(PluginVersion::[01;35m[KkV2_EXT[m[K) << 24U)
+[3.193s]       |                                                                           [01;35m[K^~~~~~~[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:99:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.193s]    99 |     [01;36m[KkV2_EXT[m[K TRT_DEPRECATED_ENUM = 1,
+[3.193s]       |     [01;36m[K^~~~~~~[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:[m[K In member function ‘[01m[Kvirtual int32_t nvinfer1::IPluginV2IOExt::getTensorRTVersion() const[m[K’:
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:813:75:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::PluginVersion::kV2_IOEXT[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.193s]   813 |         return static_cast<int32_t>((static_cast<uint32_t>(PluginVersion::[01;35m[KkV2_IOEXT[m[K) << 24U)
+[3.193s]       |                                                                           [01;35m[K^~~~~~~~~[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:101:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.193s]   101 |     [01;36m[KkV2_IOEXT[m[K TRT_DEPRECATED_ENUM = 2,
+[3.193s]       |     [01;36m[K^~~~~~~~~[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:813:75:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::PluginVersion::kV2_IOEXT[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.193s]   813 |         return static_cast<int32_t>((static_cast<uint32_t>(PluginVersion::[01;35m[KkV2_IOEXT[m[K) << 24U)
+[3.193s]       |                                                                           [01;35m[K^~~~~~~~~[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:101:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.193s]   101 |     [01;36m[KkV2_IOEXT[m[K TRT_DEPRECATED_ENUM = 2,
+[3.193s]       |     [01;36m[K^~~~~~~~~[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:[m[K At global scope:
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:895:104:[m[K [01;35m[Kwarning: [m[K‘[01m[KIPluginV2[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.193s]   895 |     virtual IPluginV2* createPlugin(AsciiChar const* name, PluginFieldCollection const* fc) noexcept = [01;35m[K0[m[K;
+[3.193s]       |                                                                                                        [01;35m[K^[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:138:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.193s]   138 | class TRT_DEPRECATED [01;36m[KIPluginV2[m[K
+[3.193s]       |                      [01;36m[K^~~~~~~~~[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:913:11:[m[K [01;35m[Kwarning: [m[K‘[01m[KIPluginV2[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.193s]   913 |         = [01;35m[K0[m[K;
+[3.193s]       |           [01;35m[K^[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:138:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.193s]   138 | class TRT_DEPRECATED [01;36m[KIPluginV2[m[K
+[3.193s]       |                      [01;36m[K^~~~~~~~~[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:976:31:[m[K [01;35m[Kwarning: [m[K‘[01m[KIPluginCreator[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.193s]   976 | using IPluginCreator = v_1_0::[01;35m[KIPluginCreator[m[K;
+[3.193s]       |                               [01;35m[K^~~~~~~~~~~~~~[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:839:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.193s]   839 | class TRT_DEPRECATED [01;36m[KIPluginCreator[m[K : public IPluginCreatorInterface
+[3.193s]       |                      [01;36m[K^~~~~~~~~~~~~~[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:976:45:[m[K [01;35m[Kwarning: [m[K‘[01m[KIPluginCreator[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.193s]   976 | using IPluginCreator = v_1_0::IPluginCreator[01;35m[K;[m[K
+[3.193s]       |                                             [01;35m[K^[m[K
+[3.193s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:839:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.194s]   839 | class TRT_DEPRECATED [01;36m[KIPluginCreator[m[K : public IPluginCreatorInterface
+[3.194s]       |                      [01;36m[K^~~~~~~~~~~~~~[m[K
+[3.194s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:27[m[K,
+[3.194s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.194s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.194s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferImpl.h:690:47:[m[K [01;35m[Kwarning: [m[K‘[01m[KIPluginV2[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.194s]   690 |     virtual IPluginV2& getPlugin() noexcept = [01;35m[K0[m[K;
+[3.194s]       |                                               [01;35m[K^[m[K
+[3.194s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimeCommon.h:34[m[K,
+[3.194s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferImpl.h:22[m[K,
+[3.194s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:27[m[K,
+[3.194s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.195s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.195s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:138:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.195s]   138 | class TRT_DEPRECATED [01;36m[KIPluginV2[m[K
+[3.195s]       |                      [01;36m[K^~~~~~~~~[m[K
+[3.196s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:27[m[K,
+[3.196s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.196s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.196s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferImpl.h:1089:113:[m[K [01;35m[Kwarning: [m[K‘[01m[KIPluginV2[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.196s]  1089 |     virtual IPluginV2Layer* addPluginV2(ITensor* const* inputs, int32_t nbInputs, IPluginV2& plugin) noexcept = [01;35m[K0[m[K;
+[3.196s]       |                                                                                                                 [01;35m[K^[m[K
+[3.196s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimeCommon.h:34[m[K,
+[3.196s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferImpl.h:22[m[K,
+[3.196s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:27[m[K,
+[3.196s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.196s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.196s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:138:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.196s]   138 | class TRT_DEPRECATED [01;36m[KIPluginV2[m[K
+[3.196s]       |                      [01;36m[K^~~~~~~~~[m[K
+[3.197s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.197s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.197s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:[m[K In member function ‘[01m[Kvirtual int32_t nvinfer1::IPluginV2DynamicExt::getTensorRTVersion() const[m[K’:
+[3.197s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:555:53:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::PluginVersion::kV2_DYNAMICEXT[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.197s]   555 |         return (static_cast<int32_t>(PluginVersion::[01;35m[KkV2_DYNAMICEXT[m[K) << 24 | (NV_TENSORRT_VERSION & 0xFFFFFF));
+[3.197s]       |                                                     [01;35m[K^~~~~~~~~~~~~~[m[K
+[3.197s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimeCommon.h:34[m[K,
+[3.198s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferImpl.h:22[m[K,
+[3.198s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:27[m[K,
+[3.198s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.198s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.198s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:103:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.198s]   103 |     [01;36m[KkV2_DYNAMICEXT[m[K TRT_DEPRECATED_ENUM = 3,
+[3.198s]       |     [01;36m[K^~~~~~~~~~~~~~[m[K
+[3.198s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.198s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.198s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:555:53:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::PluginVersion::kV2_DYNAMICEXT[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.198s]   555 |         return (static_cast<int32_t>(PluginVersion::[01;35m[KkV2_DYNAMICEXT[m[K) << 24 | (NV_TENSORRT_VERSION & 0xFFFFFF));
+[3.198s]       |                                                     [01;35m[K^~~~~~~~~~~~~~[m[K
+[3.198s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimeCommon.h:34[m[K,
+[3.198s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferImpl.h:22[m[K,
+[3.198s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:27[m[K,
+[3.198s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.198s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.198s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:103:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.198s]   103 |     [01;36m[KkV2_DYNAMICEXT[m[K TRT_DEPRECATED_ENUM = 3,
+[3.198s]       |     [01;36m[K^~~~~~~~~~~~~~[m[K
+[3.198s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.199s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.199s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:[m[K In member function ‘[01m[Kvirtual void* nvinfer1::v_1_0::IGpuAllocator::allocateAsync(uint64_t, uint64_t, nvinfer1::AllocatorFlags, cudaStream_t)[m[K’:
+[3.199s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:1735:24:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvirtual void* nvinfer1::v_1_0::IGpuAllocator::allocate(uint64_t, uint64_t, nvinfer1::AllocatorFlags)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.199s]  1735 |         return [01;35m[Kallocate(size, alignment, flags)[m[K;
+[3.199s]       |                [01;35m[K~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.199s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:1636:34:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.199s]  1636 |     TRT_DEPRECATED virtual void* [01;36m[Kallocate[m[K(
+[3.199s]       |                                  [01;36m[K^~~~~~~~[m[K
+[3.199s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:[m[K In member function ‘[01m[Kvirtual bool nvinfer1::v_1_0::IGpuAllocator::deallocateAsync(void*, cudaStream_t)[m[K’:
+[3.199s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:1767:26:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvirtual bool nvinfer1::v_1_0::IGpuAllocator::deallocate(void*)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.199s]  1767 |         return [01;35m[Kdeallocate(memory)[m[K;
+[3.199s]       |                [01;35m[K~~~~~~~~~~^~~~~~~~[m[K
+[3.199s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:1702:33:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.199s]  1702 |     TRT_DEPRECATED virtual bool [01;36m[Kdeallocate[m[K(void* const memory) noexcept = 0;
+[3.199s]       |                                 [01;36m[K^~~~~~~~~~[m[K
+[3.201s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:[m[K In member function ‘[01m[Kvirtual void* nvinfer1::v_1_0::IOutputAllocator::reallocateOutputAsync(const char*, void*, uint64_t, uint64_t, cudaStream_t)[m[K’:
+[3.201s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:4105:32:[m[K [01;35m[Kwarning: [m[K‘[01m[Kvirtual void* nvinfer1::v_1_0::IOutputAllocator::reallocateOutput(const char*, void*, uint64_t, uint64_t)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.201s]  4105 |         return [01;35m[KreallocateOutput(tensorName, currentMemory, size, alignment)[m[K;
+[3.201s]       |                [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.201s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:4074:34:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.201s]  4074 |     TRT_DEPRECATED virtual void* [01;36m[KreallocateOutput[m[K(
+[3.201s]       |                                  [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[3.205s] In file included from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.205s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:[m[K At global scope:
+[3.205s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:2728:28:[m[K [01;35m[Kwarning: [m[K‘[01m[KIPluginV2[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.205s]  2728 |     IPluginV2& getPlugin() [01;35m[Knoexcept[m[K
+[3.205s]       |                            [01;35m[K^~~~~~~~[m[K
+[3.205s] In file included from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimeCommon.h:34[m[K,
+[3.205s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferImpl.h:22[m[K,
+[3.205s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntime.h:27[m[K,
+[3.205s]                  from [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:22[m[K,
+[3.205s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.205s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInferRuntimePlugin.h:138:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.205s]   138 | class TRT_DEPRECATED [01;36m[KIPluginV2[m[K
+[3.205s]       |                      [01;36m[K^~~~~~~~~[m[K
+[3.210s] In file included from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:6[m[K:
+[3.210s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:[m[K In member function ‘[01m[Kvirtual nvinfer1::CalibrationAlgoType nvinfer1::v_1_0::IInt8EntropyCalibrator::getAlgorithm()[m[K’:
+[3.210s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8246:37:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::CalibrationAlgoType::kENTROPY_CALIBRATION[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.210s]  8246 |         return CalibrationAlgoType::[01;35m[KkENTROPY_CALIBRATION[m[K;
+[3.210s]       |                                     [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8135:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.211s]  8135 |     [01;36m[KkENTROPY_CALIBRATION[m[K TRT_DEPRECATED_ENUM = 1,   //!< Legacy entropy calibration
+[3.211s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8246:37:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::CalibrationAlgoType::kENTROPY_CALIBRATION[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.211s]  8246 |         return CalibrationAlgoType::[01;35m[KkENTROPY_CALIBRATION[m[K;
+[3.211s]       |                                     [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8135:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.211s]  8135 |     [01;36m[KkENTROPY_CALIBRATION[m[K TRT_DEPRECATED_ENUM = 1,   //!< Legacy entropy calibration
+[3.211s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:[m[K At global scope:
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8266:39:[m[K [01;35m[Kwarning: [m[K‘[01m[KIInt8EntropyCalibrator[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.211s]  8266 | using IInt8EntropyCalibrator = v_1_0::[01;35m[KIInt8EntropyCalibrator[m[K;
+[3.211s]       |                                       [01;35m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8230:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.211s]  8230 | class TRT_DEPRECATED [01;36m[KIInt8EntropyCalibrator[m[K : public IInt8Calibrator
+[3.211s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8266:61:[m[K [01;35m[Kwarning: [m[K‘[01m[KIInt8EntropyCalibrator[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.211s]  8266 | using IInt8EntropyCalibrator = v_1_0::IInt8EntropyCalibrator[01;35m[K;[m[K
+[3.211s]       |                                                             [01;35m[K^[m[K
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8230:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.211s]  8230 | class TRT_DEPRECATED [01;36m[KIInt8EntropyCalibrator[m[K : public IInt8Calibrator
+[3.211s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:[m[K In member function ‘[01m[Kvirtual nvinfer1::CalibrationAlgoType nvinfer1::v_1_0::IInt8EntropyCalibrator2::getAlgorithm()[m[K’:
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8286:37:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::CalibrationAlgoType::kENTROPY_CALIBRATION_2[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.211s]  8286 |         return CalibrationAlgoType::[01;35m[KkENTROPY_CALIBRATION_2[m[K;
+[3.211s]       |                                     [01;35m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8136:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.211s]  8136 |     [01;36m[KkENTROPY_CALIBRATION_2[m[K TRT_DEPRECATED_ENUM = 2, //!< Entropy calibration
+[3.211s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.211s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8286:37:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::CalibrationAlgoType::kENTROPY_CALIBRATION_2[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.211s]  8286 |         return CalibrationAlgoType::[01;35m[KkENTROPY_CALIBRATION_2[m[K;
+[3.212s]       |                                     [01;35m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8136:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.212s]  8136 |     [01;36m[KkENTROPY_CALIBRATION_2[m[K TRT_DEPRECATED_ENUM = 2, //!< Entropy calibration
+[3.212s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:[m[K At global scope:
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8306:40:[m[K [01;35m[Kwarning: [m[K‘[01m[KIInt8EntropyCalibrator2[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.212s]  8306 | using IInt8EntropyCalibrator2 = v_1_0::[01;35m[KIInt8EntropyCalibrator2[m[K;
+[3.212s]       |                                        [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8270:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.212s]  8270 | class TRT_DEPRECATED [01;36m[KIInt8EntropyCalibrator2[m[K : public IInt8Calibrator
+[3.212s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8306:63:[m[K [01;35m[Kwarning: [m[K‘[01m[KIInt8EntropyCalibrator2[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.212s]  8306 | using IInt8EntropyCalibrator2 = v_1_0::IInt8EntropyCalibrator2[01;35m[K;[m[K
+[3.212s]       |                                                               [01;35m[K^[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8270:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.212s]  8270 | class TRT_DEPRECATED [01;36m[KIInt8EntropyCalibrator2[m[K : public IInt8Calibrator
+[3.212s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:[m[K In member function ‘[01m[Kvirtual nvinfer1::CalibrationAlgoType nvinfer1::v_1_0::IInt8MinMaxCalibrator::getAlgorithm()[m[K’:
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8326:37:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::CalibrationAlgoType::kMINMAX_CALIBRATION[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.212s]  8326 |         return CalibrationAlgoType::[01;35m[KkMINMAX_CALIBRATION[m[K;
+[3.212s]       |                                     [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8137:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.212s]  8137 |     [01;36m[KkMINMAX_CALIBRATION[m[K TRT_DEPRECATED_ENUM = 3,    //!< Minmax calibration
+[3.212s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8326:37:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::CalibrationAlgoType::kMINMAX_CALIBRATION[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.212s]  8326 |         return CalibrationAlgoType::[01;35m[KkMINMAX_CALIBRATION[m[K;
+[3.212s]       |                                     [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8137:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.212s]  8137 |     [01;36m[KkMINMAX_CALIBRATION[m[K TRT_DEPRECATED_ENUM = 3,    //!< Minmax calibration
+[3.212s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:[m[K At global scope:
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8345:38:[m[K [01;35m[Kwarning: [m[K‘[01m[KIInt8MinMaxCalibrator[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.212s]  8345 | using IInt8MinMaxCalibrator = v_1_0::[01;35m[KIInt8MinMaxCalibrator[m[K;
+[3.212s]       |                                      [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8310:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.212s]  8310 | class TRT_DEPRECATED [01;36m[KIInt8MinMaxCalibrator[m[K : public IInt8Calibrator
+[3.212s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8345:59:[m[K [01;35m[Kwarning: [m[K‘[01m[KIInt8MinMaxCalibrator[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.212s]  8345 | using IInt8MinMaxCalibrator = v_1_0::IInt8MinMaxCalibrator[01;35m[K;[m[K
+[3.212s]       |                                                           [01;35m[K^[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8310:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.212s]  8310 | class TRT_DEPRECATED [01;36m[KIInt8MinMaxCalibrator[m[K : public IInt8Calibrator
+[3.212s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:[m[K In member function ‘[01m[Kvirtual nvinfer1::CalibrationAlgoType nvinfer1::v_1_0::IInt8LegacyCalibrator::getAlgorithm()[m[K’:
+[3.212s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8365:37:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::CalibrationAlgoType::kLEGACY_CALIBRATION[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.212s]  8365 |         return CalibrationAlgoType::[01;35m[KkLEGACY_CALIBRATION[m[K;
+[3.213s]       |                                     [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8134:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.213s]  8134 |     [01;36m[KkLEGACY_CALIBRATION[m[K TRT_DEPRECATED_ENUM = 0,    //!< Legacy calibration
+[3.213s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8365:37:[m[K [01;35m[Kwarning: [m[K‘[01m[Knvinfer1::CalibrationAlgoType::kLEGACY_CALIBRATION[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.213s]  8365 |         return CalibrationAlgoType::[01;35m[KkLEGACY_CALIBRATION[m[K;
+[3.213s]       |                                     [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8134:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.213s]  8134 |     [01;36m[KkLEGACY_CALIBRATION[m[K TRT_DEPRECATED_ENUM = 0,    //!< Legacy calibration
+[3.213s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:[m[K At global scope:
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8425:38:[m[K [01;35m[Kwarning: [m[K‘[01m[KIInt8LegacyCalibrator[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.213s]  8425 | using IInt8LegacyCalibrator = v_1_0::[01;35m[KIInt8LegacyCalibrator[m[K;
+[3.213s]       |                                      [01;35m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8349:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.213s]  8349 | class TRT_DEPRECATED [01;36m[KIInt8LegacyCalibrator[m[K : public IInt8Calibrator
+[3.213s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8425:59:[m[K [01;35m[Kwarning: [m[K‘[01m[KIInt8LegacyCalibrator[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.213s]  8425 | using IInt8LegacyCalibrator = v_1_0::IInt8LegacyCalibrator[01;35m[K;[m[K
+[3.213s]       |                                                           [01;35m[K^[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8349:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.213s]  8349 | class TRT_DEPRECATED [01;36m[KIInt8LegacyCalibrator[m[K : public IInt8Calibrator
+[3.213s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8601:58:[m[K [01;35m[Kwarning: [m[K‘[01m[KIAlgorithmVariant[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.213s]  8601 |     IAlgorithmVariant const& getAlgorithmVariant() const [01;35m[Knoexcept[m[K
+[3.213s]       |                                                          [01;35m[K^~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8502:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.213s]  8502 | class TRT_DEPRECATED [01;36m[KIAlgorithmVariant[m[K : public INoCopy
+[3.213s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8631:76:[m[K [01;35m[Kwarning: [m[K‘[01m[KIAlgorithmIOInfo[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.213s]  8631 |     IAlgorithmIOInfo const* getAlgorithmIOInfoByIndex(int32_t index) const [01;35m[Knoexcept[m[K
+[3.213s]       |                                                                            [01;35m[K^~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8439:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.213s]  8439 | class TRT_DEPRECATED [01;36m[KIAlgorithmIOInfo[m[K : public INoCopy
+[3.213s]       |                      [01;36m[K^~~~~~~~~~~~~~~~[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8668:59:[m[K [01;35m[Kwarning: [m[K‘[01m[KIAlgorithmContext[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.213s]  8668 |         int32_t nbChoices, int32_t* selection) noexcept = [01;35m[K0[m[K;
+[3.213s]       |                                                           [01;35m[K^[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8668:59:[m[K [01;35m[Kwarning: [m[K‘[01m[KIAlgorithm[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8681:42:[m[K [01;35m[Kwarning: [m[K‘[01m[KIAlgorithmContext[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.213s]  8681 |         int32_t nbAlgorithms) noexcept = [01;35m[K0[m[K;
+[3.213s]       |                                          [01;35m[K^[m[K
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8681:42:[m[K [01;35m[Kwarning: [m[K‘[01m[KIAlgorithm[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.213s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8699:35:[m[K [01;35m[Kwarning: [m[K‘[01m[KIAlgorithmSelector[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.213s]  8699 | using IAlgorithmSelector = v_1_0::[01;35m[KIAlgorithmSelector[m[K;
+[3.214s]       |                                   [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+[3.214s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8643:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.214s]  8643 | class TRT_DEPRECATED [01;36m[KIAlgorithmSelector[m[K : public IVersionedInterface
+[3.214s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[3.214s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8699:53:[m[K [01;35m[Kwarning: [m[K‘[01m[KIAlgorithmSelector[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[3.214s]  8699 | using IAlgorithmSelector = v_1_0::IAlgorithmSelector[01;35m[K;[m[K
+[3.214s]       |                                                     [01;35m[K^[m[K
+[3.214s] [01m[K/usr/local/TensorRT-10.11.0.33/include/NvInfer.h:8643:22:[m[K [01;36m[Knote: [m[Kdeclared here
+[3.214s]  8643 | class TRT_DEPRECATED [01;36m[KIAlgorithmSelector[m[K : public IVersionedInterface
+[3.214s]       |                      [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[3.604s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+[3.605s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+[3.605s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[3.605s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[3.605s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[3.605s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[3.605s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[3.605s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[3.605s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[3.605s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[3.605s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[3.605s]                  from [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:1[m[K:
+[3.605s] [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:[m[K In member function ‘[01m[Kvoid KittiImagePublisher::publishImages()[m[K’:
+[3.605s] [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:269:45:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 5 has type ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+[3.605s]   269 |             RCLCPP_WARN(this->get_logger(), [01;35m[K"Failed to read images at index %d"[m[K, [32m[Kcurrent_index_[m[K);
+[3.605s]       |                                             [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K  [32m[K~~~~~~~~~~~~~~[m[K
+[3.605s]       |                                                                                  [32m[K|[m[K
+[3.605s]       |                                                                                  [32m[Ksize_t {aka long unsigned int}[m[K
+[3.605s] [01m[K/home/stereo/ESMStereo/kitti_publisher/src/kitti_publisher/src/kitti_publisher_cuda_node.cpp:269:78:[m[K [01;36m[Knote: [m[Kformat string is defined here
+[3.605s]   269 |             RCLCPP_WARN(this->get_logger(), "Failed to read images at index [01;36m[K%d[m[K", current_index_);
+[3.605s]       |                                                                             [01;36m[K~^[m[K
+[3.605s]       |                                                                              [01;36m[K|[m[K
+[3.605s]       |                                                                              [01;36m[Kint[m[K
+[3.605s]       |                                                                             [32m[K%ld[m[K
+[5.236s] [100%] [32m[1mLinking CXX executable kitti_publisher_cuda_node[0m
+[5.618s] [100%] Built target kitti_publisher_cuda_node
+[5.625s] Invoked command in '/home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /opt/cmake-3.28.3-linux-x86_64/bin/cmake --build /home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher -- -j12 -l12
+[5.630s] Invoking command in '/home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /opt/cmake-3.28.3-linux-x86_64/bin/cmake --install /home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher
+[5.633s] -- Install configuration: ""
+[5.633s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/lib/kitti_publisher/kitti_publisher_cuda_node
+[5.637s] -- Set non-toolchain portion of runtime path of "/home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/lib/kitti_publisher/kitti_publisher_cuda_node" to ""
+[5.637s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/launch
+[5.637s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/launch/kitti_publisher_cuda_node.launch.py
+[5.637s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/ament_index/resource_index/package_run_dependencies/kitti_publisher
+[5.637s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/ament_index/resource_index/parent_prefix_path/kitti_publisher
+[5.637s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/environment/ament_prefix_path.sh
+[5.637s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/environment/ament_prefix_path.dsv
+[5.637s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/environment/path.sh
+[5.637s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/environment/path.dsv
+[5.637s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/local_setup.bash
+[5.637s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/local_setup.sh
+[5.638s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/local_setup.zsh
+[5.638s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/local_setup.dsv
+[5.638s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/package.dsv
+[5.638s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/ament_index/resource_index/packages/kitti_publisher
+[5.638s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/cmake/kitti_publisherConfig.cmake
+[5.638s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/cmake/kitti_publisherConfig-version.cmake
+[5.638s] -- Installing: /home/stereo/ESMStereo/kitti_publisher/install/kitti_publisher/share/kitti_publisher/package.xml
+[5.639s] Invoked command in '/home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /opt/cmake-3.28.3-linux-x86_64/bin/cmake --install /home/stereo/ESMStereo/kitti_publisher/build/kitti_publisher
