@@ -15,8 +15,11 @@ for Real-Time and Accurate Stereo Matching</h1>
 
 
 💡 Lightweight upsampling architecture designed for embedded deployment
+
 💡 Delivers subpixel-level precision on KITTI dataset 
+
 💡 Runs at up to 90 FPS on high-end GPUs and Jetson AGX series
+
 💡 Compatible with cost-volume-based stereo pipelines
 
 
@@ -164,6 +167,7 @@ Use ``` test_kitti.py ```, ``` test_mid.py ``` and ``` test_eth3d.py ``` for gen
 ### ROS2 inference on Jetson 
 
 Note 1: The current settings are optimized for KITTI resolution. To use your own dataset, update the ONNX configuration accordingly and set the correct dataset path in the launch file.
+
 Note 2: Set the correct path for TensorRT in CMakeLists.txt
 
 ```
