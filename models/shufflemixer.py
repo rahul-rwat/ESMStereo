@@ -60,8 +60,6 @@ class BiasFree_LayerNorm(nn.Module):
         mu = x.mean(-1, keepdim=True)
         sigma = x.var(-1, keepdim=True, unbiased=False)
         return (x - mu) / torch.sqrt(sigma + 1e-5) * self.weight
-        # return x / torch.sqrt(sigma+1e-5) * self.weight
-
 
 class WithBias_LayerNorm(nn.Module):
     def __init__(self, normalized_shape):
@@ -134,7 +132,6 @@ class FMBlock(nn.Module):
         return x
 
 
-# @ARCH_REGISTRY.register()
 class ShuffleMixer(nn.Module):
     """
     Args:
@@ -144,7 +141,7 @@ class ShuffleMixer(nn.Module):
         mlp_ratio (int): The expanding factor of point-wise MLP. Default: 2.
         upscaling_factor: The upscaling factor. [2, 3, 4]
     """
-    # def __init__(self, n_feats=64, kernel_size=7, n_blocks=5, mlp_ratio=2, upscaling_factor=4):
+
     def __init__(self, n_feats, kernel_size, n_blocks, mlp_ratio, upscaling_factor):
         super(ShuffleMixer, self).__init__()
 
@@ -156,12 +153,12 @@ class ShuffleMixer(nn.Module):
             *[FMBlock(n_feats, kernel_size, mlp_ratio) for _ in range(n_blocks)]
         )
 
-        self.upsapling2 = nn.Sequential(
+        self.upsampling2 = nn.Sequential(
                 nn.Conv2d(n_feats, n_feats * 4, 1, 1, 0),
                 nn.PixelShuffle(2),
                 nn.SiLU(inplace=True))
 
-        self.upsapling4 = nn.Sequential(
+        self.upsampling4 = nn.Sequential(
                 nn.Conv2d(n_feats, n_feats * 4, 1, 1, 0),
                 nn.PixelShuffle(2),
                 nn.SiLU(inplace=True))
@@ -172,8 +169,8 @@ class ShuffleMixer(nn.Module):
         base = x
         x = self.to_feat(x)
         x = self.blocks(x)
-        x = self.upsapling2(x)
-        x = self.upsapling4(x)
+        x = self.upsampling2(x)
+        x = self.upsampling4(x)
         x = self.tail(x)
         base = F.interpolate(base, scale_factor=self.scale, mode='bilinear', align_corners=False)
         return x + base
