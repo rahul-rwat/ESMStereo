@@ -168,12 +168,14 @@ Use ``` test_kitti.py ```, ``` test_mid.py ``` and ``` test_eth3d.py ``` for gen
 
 Note 1: The current settings are optimized for KITTI resolution. To use your own dataset, update the ONNX configuration accordingly and set the correct dataset path in the launch file.
 
-Note 2: Set the correct path for TensorRT in CMakeLists.txt
+Note 2: Set the correct path for TensorRT in CMakeLists.txt.
 
 ```
 python onnx_transformed.py
 trtexec --onnx=StereoModel.onnx --useCudaGraph --saveEngine=StereoModel.plan --fp16 --verbose
 cp StereoModel.plan /tmp
+mkdir kitti_publisher/src
+cp kitti_publisher kitti_publisher/src
 cd kitti_publisher
 colcon build
 source install/setup.bash
@@ -199,7 +201,9 @@ colcon build
 source install/setup.bash
 ```
 Note 1: set the path of the targeted scene in the launch file (left image and depth).
+
 Note 2: choose the ESMStereo-S for this comparison.
+
 Note 3: set record_video = true in cpp node to record the scene.
 
 ```
@@ -220,8 +224,9 @@ cd kitti_publisher_ess
 colcon build
 source install/setup.bash
 ```
-Note 1: set the path of the targeted scene in the launch file (left image and depth and plugin)
-Note 2: set record_video = true in cpp node to record the scene
+Note 1: set the path of the targeted scene in the launch file (left image and depth and plugin).
+
+Note 2: set record_video = true in cpp node to record the scene.
 
 ```
 cd dnn_stereo_disparity_v4.1.0_onnx
