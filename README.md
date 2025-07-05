@@ -213,7 +213,7 @@ cp StereoModel_576_960_s.plan /tmp
 ros2 launch virtual_kitti_publisher virtual_kitti_publisher_cuda_node.launch.py
 ```
 
-#### For ESS DNN
+#### For ESS DNN:
 
 * Download ESS DNN from [ess](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/isaac/models/dnn_stereo_disparity) and extract it.
 
