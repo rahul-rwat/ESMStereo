@@ -185,6 +185,50 @@ ros2 launch kitti_publisher kitti_publisher_cuda_node.launch.py
   <img width="600" height="300" src="./imgs/esm_vs_ess.png" data-zoomable>
 </p>
 
+### Try it yourself!
+
+* Download virtual kitti form [vkitti](https://europe.naverlabs.com/proxy-virtual-worlds-vkitti-2/).
+
+#### For ESMStereo:
+
+```
+mkdir virtual_kitti_publisher/src -p
+cp virtual_kitti_publisher virtual_kitti_publisher/src
+cd virtual_kitti_publisher
+colcon build
+source install/setup.bash
+```
+Note 1: set the path of the targeted scene in the launch file (left image and depth).
+Note 2: choose the ESMStereo-S for this comparison.
+Note 3: set record_video = true in cpp node to record the scene.
+
+```
+python3 onnx_transformed.py --resolution ess
+trtexec --onnx=StereoModel.onnx --fp16 --saveEngine=StereoModel_576_960_s.plan
+cp StereoModel_576_960_s.plan /tmp
+ros2 launch virtual_kitti_publisher virtual_kitti_publisher_cuda_node.launch.py
+```
+
+#### For ESS DNN
+
+* Download ESS DNN from [ess](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/isaac/models/dnn_stereo_disparity) and extract it.
+
+```
+mkdir kitti_publisher_ess/src -p
+cp kitti_publisher_ess kitti_publisher_ess/src
+cd kitti_publisher_ess
+colcon build
+source install/setup.bash
+```
+Note 1: set the path of the targeted scene in the launch file (left image and depth and plugin)
+Note 2: set record_video = true in cpp node to record the scene
+
+```
+cd dnn_stereo_disparity_v4.1.0_onnx
+trtexec --onnx=ess.onnx --fp16 --saveEngine=ess.plan --plugins=plugins/x86_64/ess_plugins.so
+cp ess.plan /tmp
+ros2 launch kitti_publisher_ess kitti_publisher_ess_cuda_node.launch.py
+```
 
 # Citation
 
