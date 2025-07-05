@@ -1,15 +1,7 @@
-# Ignore folders (use trailing slash)
 checkpoint/
 checkpoints/
 04/
 
-# Ignore specific files
 onnx_transformed_oak.py
 
-# Ignore folders inside kitti_publisher
-kitti_publisher/install/
-kitti_publisher/log/
-kitti_publisher/setup/
-
-# Ignore Python cache directories
 __pycache__/
