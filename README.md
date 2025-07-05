@@ -179,14 +179,11 @@ colcon build
 source install/setup.bash
 ros2 launch kitti_publisher kitti_publisher_cuda_node.launch.py 
 ```
-### Performance Comparison: ESMStereo vs. ESS DNN in Virtual KITTI (Lower is Better)
+### Performance Comparison: ESMStereo vs. ESS DNN in Virtual KITTI (Lower is Better). The values are End-Point Error EPE [px].
 
-| Scene   | Rain (ESMStereo) | Rain (ESS DNN) | Fog (ESMStereo) | Fog (ESS DNN) | Overcast (ESMStereo) | Overcast (ESS DNN) | Sunset (ESMStereo) | Sunset (ESS DNN) |
-|---------|------------------|----------------|------------------|----------------|------------------------|---------------------|---------------------|--------------------|
-| Scene01 | <span style="color:red"><b>7.23</b></span> | <span style="color:red"><b>8.52</b></span> | <span style="color:red"><b>7.26</b></span> | <span style="color:red"><b>7.52</b></span> | <span style="color:red"><b>6.93</b></span> | <span style="color:red"><b>6.83</b></span> | <span style="color:red"><b>7.01</b></span> | <span style="color:red"><b>6.56</b></span> |
-| Scene02 | <span style="color:red"><b>5.44</b></span> | <span style="color:red"><b>6.63</b></span> | <span style="color:red"><b>5.45</b></span> | <span style="color:red"><b>6.62</b></span> | <span style="color:red"><b>5.25</b></span> | <span style="color:red"><b>4.96</b></span> | <span style="color:red"><b>5.16</b></span> | <span style="color:red"><b>4.91</b></span> |
-| Scene06 | <span style="color:red"><b>5.53</b></span> | <span style="color:red"><b>6.01</b></span> | <span style="color:red"><b>5.78</b></span> | <span style="color:red"><b>6.42</b></span> | <span style="color:red"><b>5.66</b></span> | <span style="color:red"><b>5.36</b></span> | <span style="color:red"><b>5.70</b></span> | <span style="color:red"><b>5.33</b></span> |
-| Scene18 | <span style="color:red"><b>7.29</b></span> | <span style="color:red"><b>7.08</b></span> | <span style="color:red"><b>7.06</b></span> | <span style="color:red"><b>7.22</b></span> | <span style="color:red"><b>7.27</b></span> | <span style="color:red"><b>6.64</b></span> | <span style="color:red"><b>6.98</b></span> | <span style="color:red"><b>6.76</b></span> |
+<p align="center">
+  <img width="600" height="300" src="./imgs/esm_vs_ess.png" data-zoomable>
+</p>
 
 
 # Citation
