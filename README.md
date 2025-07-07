@@ -184,6 +184,11 @@ ros2 launch kitti_publisher kitti_publisher_cuda_node.launch.py
 ### Performance Comparison: ESMStereo vs. ESS DNN (NVIDIA) in Virtual KITTI (Lower is Better). The values are End-Point Error EPE [px].
 
 <p align="center">
+  <img width="600" height="300" src="./imgs/scene_stacked_loop_hq.gif" data-zoomable>
+</p>
+
+
+<p align="center">
   <img width="600" height="300" src="./imgs/esm_vs_ess.png" data-zoomable>
 </p>
 
