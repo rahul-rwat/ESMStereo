@@ -189,7 +189,7 @@ ros2 launch kitti_publisher kitti_publisher_cuda_node.launch.py
 
 
 <p align="center">
-  <img width="600" height="300" src="./imgs/esm_vs_ess.png" data-zoomable>
+  <img width="600" height="100" src="./imgs/esm_vs_ess.png" data-zoomable>
 </p>
 
 ### Try it yourself!
