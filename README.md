@@ -208,8 +208,8 @@ Note 3: set record_video = true in cpp node to record the scene.
 
 ```
 python3 onnx_transformed.py --resolution ess
-trtexec --onnx=StereoModel.onnx --fp16 --saveEngine=StereoModel_576_960_s.plan
-cp StereoModel_576_960_s.plan /tmp
+trtexec --onnx=StereoModel.onnx --fp16 --saveEngine=StereoModel_576_960_fp16.plan
+cp StereoModel_576_960_fp16.plan /tmp
 ros2 launch virtual_kitti_publisher virtual_kitti_publisher_cuda_node.launch.py
 ```
 
