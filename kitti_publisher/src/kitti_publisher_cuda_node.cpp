@@ -429,7 +429,7 @@ private:
         current_index++;
     }
 
-    cv::Mat range_mask, valid_mask, left_img, right_img;
+    cv::Mat valid_mask, left_img, right_img;
     std::string kitti_path, model_path, left_dir_, right_dir_;
     std::vector<std::string> left_images_, right_images_;
     cv::Mat disp_filtered, disp_filtered_16;
