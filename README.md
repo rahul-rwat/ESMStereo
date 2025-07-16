@@ -209,7 +209,7 @@ Note 1: set the path of the targeted scene in the launch file (left image and de
 
 Note 2: choose the ESMStereo-S for this comparison.
 
-Note 3: set record_video = true in cpp node to record the scene.
+Note 3: set record_video = true in the launch file to record the scene.
 
 ```
 python3 onnx_transformed.py --resolution ess
@@ -231,7 +231,7 @@ source install/setup.bash
 ```
 Note 1: set the path of the targeted scene in the launch file (left image and depth and plugin).
 
-Note 2: set record_video = true in cpp node to record the scene.
+Note 2: set record_video = true in the launch file to record the scene.
 
 ```
 cd dnn_stereo_disparity_v4.1.0_onnx
@@ -239,6 +239,27 @@ trtexec --onnx=ess.onnx --fp16 --saveEngine=ess.plan --plugins=plugins/x86_64/es
 cp ess.plan /tmp
 ros2 launch kitti_publisher_ess kitti_publisher_ess_cuda_node.launch.py
 ```
+
+## ESMStereo with Confidence:
+
+<p align="center">
+  <img width="600" height="450" src="./imgs/confidence_map.gif" data-zoomable>
+</p>
+
+
+```
+python3 onnx_transformed_confidence.py
+trtexec --onnx=StereoModelConf.onnx --fp16 --saveEngine=StereoModelConf.plan
+
+mkdir kitti_publisher_conf/src -p
+cp kitti_publisher_conf kitti_publisher_conf/src
+cd kitti_publisher_conf
+colcon build
+source install/setup.bash
+ros2 launch kitti_publisher_conf kitti_publisher_conf_cuda_node.launch.py
+```
+Note 1: confident network currently is only trained for ESMStereo-S
+
 
 # Citation
 
