@@ -1,17 +1,24 @@
-import os
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
 def generate_launch_description():
-
-    depthai_node = Node(
+    kitti_node = Node(
         package='kitti_publisher',
         executable='kitti_publisher_cuda_node',
         name='kitti_publisher_cuda_node',
         output='screen',
-        parameters=[{'kitti_path': '/datasets/odometry/data_odometry_color/dataset/sequences/04'}]
+        parameters=[
+            {'kitti_path': '/datasets/odometry/data_odometry_color/dataset/sequences/04'},
+            {'model_path': '/tmp/StereoModel.plan'},
+            {'record_video': False},
+            {'net_input_width': 1248},
+            {'net_input_height': 384},
+            {'fx': 707.0912},
+            {'baseline': 0.536},
+            {'max_disp': 192.0}
+        ]
     )
 
     return LaunchDescription([
-        depthai_node,
+        kitti_node,
     ])
