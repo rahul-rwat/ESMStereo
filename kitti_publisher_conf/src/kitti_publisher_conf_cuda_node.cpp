@@ -489,8 +489,6 @@ private:
 
         threshold = static_cast<double>(thresholdslider) / 100.0;
 
-        current_index = 85;
-
         left_img = cv::imread(left_images_[current_index], cv::IMREAD_COLOR);
         right_img = cv::imread(right_images_[current_index], cv::IMREAD_COLOR);
         gt_img = cv::imread(gt_images_[current_index], cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH);
