@@ -354,7 +354,6 @@ public:
         RCLCPP_INFO(this->get_logger(), "Image Publisher Node Started!");
 
         // Parameters
-        // Parameters
         kitti_path = this->declare_parameter<std::string>("kitti_path", "./vkitti");
         depth_kitti_path = this->declare_parameter<std::string>("depth_kitti_path", "./vkitti/depth");
         model_path = this->declare_parameter<std::string>("model_path", "/tmp/StereoModel_576_960_fp16.plan");
