@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # TensorRT paths
-set(TENSORRT_INCLUDE_DIR /usr/local/TensorRT-10.11.0.33/include)
-set(TENSORRT_LIBRARY_DIR /usr/local/TensorRT-10.11.0.33/lib)
+set(TENSORRT_INCLUDE_DIR /usr/local/TensorRT-10.12.0.36/include)
+set(TENSORRT_LIBRARY_DIR /usr/local/TensorRT-10.12.0.36/lib)
 
 # CUDA
 find_package(CUDA REQUIRED)
