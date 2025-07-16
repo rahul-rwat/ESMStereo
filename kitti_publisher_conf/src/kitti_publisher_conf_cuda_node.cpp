@@ -6,6 +6,8 @@
 #include <chrono>
 #include <iostream>
 #include <fstream>
+#include <limits>
+#include <algorithm>
 
 // ROS
 #include <rclcpp/rclcpp.hpp>
@@ -50,9 +52,109 @@ class Logger : public nvinfer1::ILogger
 
 static Logger gLogger;
 
+double computeEPE(const cv::Mat& disp_gt, const cv::Mat& disp_pred) {
+    CV_Assert(disp_gt.type() == CV_32F && disp_pred.type() == CV_32F);
+    CV_Assert(disp_gt.size() == disp_pred.size());
+
+    cv::Mat valid_mask = (disp_gt > 0) & (disp_gt < 192);
+
+    cv::Mat error;
+    cv::absdiff(disp_pred, disp_gt, error);
+
+    cv::Scalar mean_error = cv::mean(error, valid_mask);
+
+    return mean_error[0];
+}
+
+cv::Mat gen_error_colormap() {
+    float data[10][5] = {
+        {0.0f / 3.0f,    0.1875f / 3.0f,  49,  54, 149},
+        {0.1875f / 3.0f, 0.375f / 3.0f,   69, 117, 180},
+        {0.375f / 3.0f,  0.75f / 3.0f,  116, 173, 209},
+        {0.75f / 3.0f,   1.5f / 3.0f,  171, 217, 233},
+        {1.5f / 3.0f,    3.0f / 3.0f,  224, 243, 248},
+        {3.0f / 3.0f,    6.0f / 3.0f,  254, 224, 144},
+        {6.0f / 3.0f,    12.0f / 3.0f, 253, 174,  97},
+        {12.0f / 3.0f,   24.0f / 3.0f, 244, 109,  67},
+        {24.0f / 3.0f,   48.0f / 3.0f, 215,  48,  39},
+        {48.0f / 3.0f,   std::numeric_limits<float>::infinity(), 165, 0, 38}
+    };
+
+    cv::Mat cols(10, 5, CV_32F);
+    for (int i = 0; i < 10; ++i) {
+        for (int j = 0; j < 5; ++j) {
+            float val = data[i][j];
+            if (j >= 2) val /= 255.0f;
+            cols.at<float>(i, j) = val;
+        }
+    }
+    return cols;
+}
+
+cv::Mat vis(const cv::Mat& D_est, const cv::Mat& D_gt) {
+    CV_Assert(D_est.size() == D_gt.size() && D_est.type() == CV_32F && D_gt.type() == CV_32F);
+
+    int H = D_gt.rows;
+    int W = D_gt.cols;
+
+    cv::Mat mask = (D_gt > 0);
+    cv::Mat error = cv::abs(D_gt - D_est);
+
+    error.setTo(0, ~mask);
+
+    for (int y = 0; y < H; ++y) {
+        float* err_ptr = error.ptr<float>(y);
+        const float* gt_ptr = D_gt.ptr<float>(y);
+        const uchar* mask_ptr = mask.ptr<uchar>(y);
+        for (int x = 0; x < W; ++x) {
+            if (mask_ptr[x]) {
+                float abs_error_norm = err_ptr[x];
+                float rel_error_norm = (err_ptr[x] / gt_ptr[x]);
+                err_ptr[x] = std::min(abs_error_norm, rel_error_norm);
+            }
+        }
+    }
+
+    cv::Mat cols = gen_error_colormap();
+    cv::Mat error_image(H, W, CV_32FC3, cv::Scalar(0, 0, 0));
+
+    for (int i = 0; i < cols.rows; ++i) {
+        float lower = cols.at<float>(i, 0);
+        float upper = cols.at<float>(i, 1);
+        cv::Vec3f color(cols.at<float>(i, 2), cols.at<float>(i, 3), cols.at<float>(i, 4));
+
+        for (int y = 0; y < H; ++y) {
+            float* err_ptr = error.ptr<float>(y);
+            cv::Vec3f* out_ptr = error_image.ptr<cv::Vec3f>(y);
+            const uchar* mask_ptr = mask.ptr<uchar>(y);
+            for (int x = 0; x < W; ++x) {
+                if (mask_ptr[x]) {
+                    if (err_ptr[x] >= lower && err_ptr[x] < upper) {
+                        out_ptr[x] = color;
+                    }
+                }
+            }
+        }
+    }
+
+    for (int y = 0; y < H; ++y) {
+        cv::Vec3f* out_ptr = error_image.ptr<cv::Vec3f>(y);
+        const uchar* mask_ptr = mask.ptr<uchar>(y);
+        for (int x = 0; x < W; ++x) {
+            if (!mask_ptr[x]) {
+                out_ptr[x] = cv::Vec3f(0,0,0);
+            }
+        }
+    }
+
+    return error_image;
+}
+
 void visualize_and_record_disparity(
     const cv::Mat& disparity,
     const cv::Mat& disp_filtered_16,
+    const cv::Mat& conf_map,
+    const cv::Mat& gt_mat,
     const cv::Mat& left_img,
     const cv::Mat& valid_mask,
     bool record_video,
@@ -67,7 +169,6 @@ void visualize_and_record_disparity(
     int center_y = disparity.rows / 2;
 
     float disp_val = disparity.at<float>(center_y, center_x);
-
 
     std::string depth_text;
     if (disp_val > 0.0) {
@@ -86,6 +187,7 @@ void visualize_and_record_disparity(
     disp_filtered_16.convertTo(disp_norm, CV_8UC1, -255.0 / (max_val - min_val), 255.0 * max_val / (max_val - min_val));
     cv::applyColorMap(disp_norm, disp_color, cv::COLORMAP_MAGMA);
 
+
     cv::Mat left_color;
     if (left_img.channels() == 1) {
         cv::cvtColor(left_img, left_color, cv::COLOR_GRAY2BGR);
@@ -93,15 +195,33 @@ void visualize_and_record_disparity(
         left_color = left_img.clone();
     }
 
-    // Match dimensions if needed
     if (left_color.size() != disp_color.size()) {
         cv::resize(left_color, left_color, disp_color.size());
     }
 
+    cv::Mat conf_map_color, conf_norm ;
+
+    conf_map.convertTo(conf_norm, CV_8UC1, 256.0);
+    cv::cvtColor(conf_norm, conf_map_color, cv::COLOR_GRAY2BGR);
+
+    cv::Mat gt_mat_color, gt_norm ;
+    gt_mat.convertTo(gt_norm, CV_8UC1, 256.0);
+    cv::cvtColor(gt_norm, gt_mat_color, cv::COLOR_GRAY2BGR);
+
+    cv::Mat gt_map_float;
+    gt_mat.convertTo(gt_map_float, CV_32FC1, 1.0f / 256.0f);
+    gt_map_float.setTo(0, ~valid_mask);
+
+    cv::Mat D1_map = vis(disparity, gt_map_float);
+    double epe = computeEPE(gt_map_float, disparity);
+
+    cv::Mat error_map_color, error_norm ;
+    D1_map.convertTo(error_norm, CV_8UC3, 255.0);
+    cv::cvtColor(error_norm, error_map_color, cv::COLOR_RGB2BGR);
+
     cv::circle(disp_color, cv::Point(center_x, center_y), 5, cv::Scalar(255, 0, 0), -1);
     cv::putText(disp_color, depth_text, cv::Point(center_x + 10, center_y - 10), cv::FONT_HERSHEY_SIMPLEX, 1.0, cv::Scalar(255, 0, 0), 2);
 
-    // Elapsed time annotation (FPS)
     std::ostringstream oss;
     oss << std::fixed << std::setprecision(2) << 1000.0 / elapsed_ms << " HZ";
     std::string text = oss.str();
@@ -116,14 +236,30 @@ void visualize_and_record_disparity(
     cv::putText(disp_color, text, text_org, font_face, font_scale, text_color, thickness);
 
     std::ostringstream oss_th;
-    oss_th << std::fixed << std::setprecision(2) << "Threshold: "  << th;
+    oss_th << std::fixed << std::setprecision(2) << "Confidence Threshold: "  << th;
     std::string text_th_str = oss_th.str();
     cv::Point text_th(10, text_size.height + 10);
-    cv::putText(disp_color, text_th_str, text_th, font_face, font_scale, text_color, thickness);
+    cv::putText(conf_map_color, text_th_str, text_th, font_face, font_scale, text_color, thickness);
+
+    std::ostringstream oss_epe;
+    oss_epe << std::fixed << std::setprecision(2) << "End Point Error (EPE) [px]: "  << epe;
+    std::string text_epe_str = oss_epe.str();
+    cv::Point text_epe(10, text_size.height + 10);
+    cv::putText(error_map_color, text_epe_str, text_epe, font_face, font_scale, text_color, thickness);
+
+    cv::Mat combined_disp;
+    cv::vconcat(left_color, disp_color, combined_disp);
+
+    cv::Mat combined_conf;
+    cv::vconcat(error_map_color, conf_map_color, combined_conf);
 
     cv::Mat combined;
-    cv::vconcat(left_color, disp_color, combined);
-    cv::imshow("Left + Disparity", combined);
+    cv::hconcat(combined_disp, combined_conf, combined);
+
+    cv::Mat combined_resized;
+    cv::resize(combined, combined_resized, cv::Size(), 0.62, 0.62, cv::INTER_AREA);
+
+    cv::imshow("Left + Disparity", combined_resized);
     cv::waitKey(1);
 
     if (record_video && !video_writer.isOpened()) {
@@ -226,10 +362,8 @@ bool initializeTensorRT(std::string model_path, int net_input_height_, int net_i
 
     context_ = engine_->createExecutionContext();
 
-    // Set up stream
     cudaStreamCreate(&stream_);
 
-    // Input/output dims
     inputSize_ = 1 * 3 * net_input_height_ * net_input_width_ * sizeof(float);
     outputSize_ = 1 * net_input_height_ * net_input_width_ * sizeof(float);
 
@@ -244,7 +378,6 @@ bool initializeTensorRT(std::string model_path, int net_input_height_, int net_i
     outputIndex_ = -1;
     confidenceIndex_ = -1;
 
-    // Find tensor indices
     for (int i = 0; i < engine_->getNbIOTensors(); ++i) {
         const char* name = engine_->getIOTensorName(i);
 
@@ -261,12 +394,10 @@ bool initializeTensorRT(std::string model_path, int net_input_height_, int net_i
             if (strcmp(name, confidenceName.c_str()) == 0) confidenceIndex_ = i;
     }
 
-    // Set shapes
     nvinfer1::Dims4 inputDims = {1, 3, net_input_height_, net_input_width_};
     context_->setInputShape(engine_->getIOTensorName(leftIndex_), inputDims);
     context_->setInputShape(engine_->getIOTensorName(rightIndex_), inputDims);
 
-    // Allocate buffers
     cudaMalloc(&buffers_[leftIndex_], inputSize_);
     cudaMalloc(&buffers_[rightIndex_], inputSize_);
     cudaMalloc(&buffers_[outputIndex_], outputSize_);
@@ -295,6 +426,7 @@ public:
 
         left_dir_ = kitti_path + "/image_2";
         right_dir_ = kitti_path + "/image_3";
+        gt_dir_ = kitti_path + "/disp_occ_0";
 
         if (!fs::exists(left_dir_) || !fs::exists(right_dir_)) {
             RCLCPP_ERROR(this->get_logger(), "Invalid KITTI dataset path: %s", kitti_path.c_str());
@@ -302,13 +434,26 @@ public:
         }
 
         for (const auto& entry : fs::directory_iterator(left_dir_)) {
-            left_images_.push_back(entry.path().string());
+            std::string filename = entry.path().filename().string();
+            if (filename.size() >= 7 && filename.compare(filename.size() - 7, 7, "_10.png") == 0) {
+                left_images_.push_back(entry.path().string());
+            }
         }
+
         for (const auto& entry : fs::directory_iterator(right_dir_)) {
-            right_images_.push_back(entry.path().string());
+            std::string filename = entry.path().filename().string();
+            if (filename.size() >= 7 && filename.compare(filename.size() - 7, 7, "_10.png") == 0) {
+                right_images_.push_back(entry.path().string());
+            }
         }
+
+        for (const auto& entry : fs::directory_iterator(gt_dir_)) {
+            gt_images_.push_back(entry.path().string());
+        }
+
         std::sort(left_images_.begin(), left_images_.end());
         std::sort(right_images_.begin(), right_images_.end());
+        std::sort(gt_images_.begin(), gt_images_.end());
 
         if (left_images_.size() != right_images_.size()) {
             RCLCPP_ERROR(this->get_logger(), "Mismatch in number of images between left and right cameras.");
@@ -344,8 +489,11 @@ private:
 
         threshold = static_cast<double>(thresholdslider) / 100.0;
 
+        current_index = 85;
+
         left_img = cv::imread(left_images_[current_index], cv::IMREAD_COLOR);
         right_img = cv::imread(right_images_[current_index], cv::IMREAD_COLOR);
+        gt_img = cv::imread(gt_images_[current_index], cv::IMREAD_ANYCOLOR | cv::IMREAD_ANYDEPTH);
 
         int original_height = left_img.rows;
         int original_width = left_img.cols;
@@ -428,10 +576,11 @@ private:
 
         disp_filtered.setTo(0, ~valid_mask);
         disp_filtered.convertTo(disp_filtered_16, CV_16UC1, 256.0);
-
         visualize_and_record_disparity(
             disp_filtered,
             disp_filtered_16,
+            conf_mat,
+            gt_img,
             left_img,
             valid_mask,
             record_video,
@@ -458,9 +607,9 @@ private:
         current_index++;
     }
 
-    cv::Mat conf_mask, range_mask, valid_mask, left_img, right_img;
-    std::string kitti_path, model_path, left_dir_, right_dir_;
-    std::vector<std::string> left_images_, right_images_;
+    cv::Mat conf_mask, range_mask, valid_mask, left_img, right_img, gt_img;
+    std::string kitti_path, model_path, left_dir_, right_dir_, gt_dir_;
+    std::vector<std::string> left_images_, right_images_, gt_images_;
     cv::Mat disp_filtered, disp_filtered_16;
     double threshold, fx, baseline, max_disp;
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr left_pub_, right_pub_, disparity_pub_;
