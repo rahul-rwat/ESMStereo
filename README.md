@@ -144,7 +144,7 @@ python3 train_kitti.py --logdir Small --loadckpt checkpoint/esmstereo_S_gwc.ckpt
 
 ### Pretrained Model
 Download the trained weights folder and extract it in the root directory, rename it to ```checkpoint```.
-* [ESMStereo](https://drive.google.com/file/d/1fCEKiQ1wA-TehKVisDF77hZhqDqGWGyH/view?usp=sharing)
+* [ESMStereo](https://drive.google.com/file/d/1vAl0sbXHWiOd1pobpDhPbRyFqGgANHAv/view?usp=sharing)
 
 Generate disparity images of KITTI test set,
 ```
@@ -259,6 +259,7 @@ source install/setup.bash
 ros2 launch kitti_publisher_conf kitti_publisher_conf_cuda_node.launch.py
 ```
 Note 1: confidence network currently is only trained for ESMStereo-S
+Note 2: use esmstereo_S_gwc_confidence.ckpt trained weights
 
 
 # Citation
