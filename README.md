@@ -259,6 +259,7 @@ source install/setup.bash
 ros2 launch kitti_publisher_conf kitti_publisher_conf_cuda_node.launch.py
 ```
 Note 1: confidence network currently is only trained for ESMStereo-S
+
 Note 2: use esmstereo_S_gwc_confidence.ckpt trained weights
 
 
