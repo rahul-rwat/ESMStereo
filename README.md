@@ -171,7 +171,7 @@ Note 1: The current settings are optimized for KITTI resolution. To use your own
 Note 2: Set the correct path for TensorRT in CMakeLists.txt.
 
 ```
-python onnx_transformed.py --resolution kitti
+python onnx_transformed.py
 trtexec --onnx=StereoModel.onnx --useCudaGraph --saveEngine=StereoModel.plan --fp16 --verbose
 cp StereoModel.plan /tmp
 mkdir kitti_publisher/src
